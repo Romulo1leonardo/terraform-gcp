@@ -23,8 +23,6 @@ resource "google_compute_instance" "webserver" {
   metadata_startup_script = "sudo apt-get update;sudo apt-get install apache2 -y;echo Testando > /var/www/html/index.html"
 
   #Habilita rede para a VM bem como um IP publico
-
-
   network_interface {
     network = "default"
     access_config {
@@ -32,4 +30,14 @@ resource "google_compute_instance" "webserver" {
     }
   }
 
+}
+# Cria o Firewall para a VM
+resource "google_compute_firewall" "webfirewall" {
+  name        = "${var.nome_fw}"
+  network     = "default"
+
+  allow {
+    protocol  = "tcp"
+    ports     = "${var.portas}"
+  }
 }

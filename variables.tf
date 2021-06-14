@@ -26,3 +26,12 @@ variable "imagem" {
   type    = string
   default = "debian-cloud/debian-9"
 }
+
+variable "nome_fw" {
+  type = "string"
+  default = "webserver-firewall"
+}
+variable "portas" {
+  type = "list"
+  default = ["80"]
+}
