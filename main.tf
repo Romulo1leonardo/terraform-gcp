@@ -1,6 +1,6 @@
 #Configurando o projeto GCP
 provider "google" {
-  credentials = file("/home/romulo/projetos/terraform-gcp/tabajara-316317-869834c2e96d.json")
+  credentials = file("caminho do arquivo")
   project     = var.project_id
   region      = var.regiao
 }
